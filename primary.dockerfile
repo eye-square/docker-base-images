@@ -16,8 +16,8 @@ RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   apt-get update && apt-get install yarn
 
-# RUN mkdir core
-#
-# COPY compile.core.package.json /core/package.json
-#
-# RUN cd core && yarn install && rm -r node_modules && cd /
+RUN mkdir core
+
+COPY compile.core.package.json /core/package.json
+
+RUN cd core && yarn install && rm -r node_modules && cd /
