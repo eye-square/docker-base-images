@@ -18,6 +18,6 @@ RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 
 RUN mkdir core
 
-COPY compile.core.package.json /core/package.json
+COPY package.json /core/package.json
 
 RUN cd core && yarn install && rm -r node_modules && cd /
