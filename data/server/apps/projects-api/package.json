@@ -1,0 +1,51 @@
+{
+  "name": "projects-api",
+  "description": "api for creating and managing our projects",
+  "main": "main.js",
+  "scripts": {
+    "devmode": "docker-compose -f docker/local/build.docker-compose.yml up --build --abort-on-container-exit",
+    "start": "node main.js",
+    "test": "./node_modules/.bin/nodemon -x \"./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec test/unit\"",
+    "_compile": "echo \"compiling\"",
+    "integration": "docker-compose -f docker/local/integration.docker-compose.yml up --build --abort-on-container-exit",
+    "_integration": "./node_modules/.bin/mocha --opts test/integration/lib/mocha.opts test/integration",
+    "_local": "nodemon -x \"npm start\" -w test -w lib",
+    "_test": "./node_modules/.bin/mocha -R spec test/unit",
+    "_test_watch": "nodemon --watch ./ --exec 'mocha -R spec test/unit'"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint-plugin-mocha": "^4.3.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.0",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^2.0.0",
+    "supertest-promised": "^1.0.0"
+  },
+  "dependencies": {
+    "ajv": "^4.9.0",
+    "async": "^2.0.1",
+    "aws-sdk": "^2.7.10",
+    "bluebird": "^3.4.5",
+    "body-parser": "^1.15.2",
+    "btoa": "^1.1.2",
+    "clone": "^1.0.2",
+    "connect-timeout": "^1.7.0",
+    "cors": "^2.8.1",
+    "eslint": "^3.2.2",
+    "express": "^4.14.0",
+    "extend": "^3.0.0",
+    "is_js": "^0.8.0",
+    "minimist": "*",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "request": "^2.74.0",
+    "swagger-node-express": "~2.0"
+  }
+}

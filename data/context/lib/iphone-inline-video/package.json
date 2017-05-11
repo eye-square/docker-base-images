@@ -1,0 +1,65 @@
+{
+  "name": "iphone-inline-video",
+  "version": "2.0.1",
+  "description": "Make videos playable inline on the iPhone (prevents automatic fullscreen)",
+  "license": "MIT",
+  "repository": "bfred-it/iphone-inline-video",
+  "author": "Federico Brigante <github@bfred.it> (bfred.it)",
+  "keywords": [
+    "browser",
+    "iphone",
+    "ios",
+    "play",
+    "video",
+    "inline",
+    "fullscreen",
+    "full screen",
+    "ipod",
+    "autoplay",
+    "multiple",
+    "audio",
+    "sound",
+    "canvas",
+    "gif"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/iphone-inline-video.common-js.js",
+  "module": "dist/iphone-inline-video.es-modules.js",
+  "jsnext:main": "dist/iphone-inline-video.es-modules.js",
+  "scripts": {
+    "_build:js": "bfred-npm-bundler iphone-inline-video enableInlineVideo",
+    "build": "npm-run-all --silent jsfix _build:*",
+    "jsfix": "xo --fix",
+    "watch:server": "browser-sync start --startPath demo --no-ghost-mode --reload-delay 300 --no-open --server --files 'dist/*.browser.js,demo/**'",
+    "watch:build": "onchange 'index.js' 'lib/*' -i -- npm run build",
+    "watch": "npm-run-all --parallel --silent watch:*",
+    "prepublish": "npm run build",
+    "version": "npm run build; git add dist",
+    "test": "npm run build"
+  },
+  "devDependencies": {
+    "bfred-npm-bundler": "^8.0.3",
+    "browser-sync": "^2.18.7",
+    "npm-run-all": "^4.0.1",
+    "onchange": "^3.2.1",
+    "xo": "^0.17.1"
+  },
+  "xo": {
+    "ignores": [
+      "demo/**"
+    ],
+    "env": [
+      "browser"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/bfred-it/iphone-inline-video/issues"
+  },
+  "homepage": "https://github.com/bfred-it/iphone-inline-video#readme",
+  "dependencies": {
+    "intervalometer": "1.0.2",
+    "poor-mans-symbol": "^1.0.1"
+  }
+}

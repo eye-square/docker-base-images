@@ -1,0 +1,63 @@
+{
+  "name": "facebook",
+  "version": "1.0.0",
+  "description": "facebook",
+  "scripts": {
+    "build": "webpack --config webpack.production.config.js --progress --profile --colors",
+    "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors",
+    "dev:personal": "webpack --config webpack.personal.config.js --progress --profile --colors",
+    "build:personal": "webpack --config webpack.personal.production.config.js --progress --profile --colors",
+    "_test": "node test/check-fb-pages",
+    "installDeps": "yarn install && npm install ../../lib/iphone-inline-video && npm install ../../lib/jump.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eye-square/in-context-testing"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/eye-square/in-context-testing",
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "exports-loader": "^0.6.3",
+    "imports-loader": "^0.7.0",
+    "iphone-inline-video": "file:../../lib/iphone-inline-video",
+    "jump.js": "file:../../lib/jump.js",
+    "node-sass": "^4.5.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-string-replace": "^0.4.0",
+    "react-string-replace-recursively": "^0.1.27",
+    "sass-loader": "^4.0.2",
+    "whatwg-fetch": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "6.21.0",
+    "babel-loader": "6.2.9",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-plugin-transform-react-jsx-img-import": "^0.1.4",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0",
+    "babel-runtime": "^6.20.0",
+    "css-loader": "0.26.1",
+    "eslint": "^3.16.1",
+    "eslint-plugin-react": "^6.10.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "0.9.0",
+    "html-webpack-plugin": "^2.24.1",
+    "json-loader": "^0.5.4",
+    "postcss-loader": "^1.2.1",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "request-promise": "^4.2.0",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.14.0",
+    "webpack-cleanup-plugin": "^0.4.1",
+    "webpack-dashboard": "^0.3.0",
+    "webpack-dev-server": "1.16.2",
+    "webpack-shell-plugin": "^0.5.0",
+    "wrapper-webpack-plugin": "^0.1.11"
+  }
+}

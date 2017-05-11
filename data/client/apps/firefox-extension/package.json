@@ -1,0 +1,19 @@
+{
+  "name": "firefox-extension",
+  "description": "",
+  "scripts": {
+    "_end2end": "rm -r -f /extensions/firefox-extension && cp -r dist /extensions/firefox-extension && chmod -R 777 /extensions/firefox-extension",
+    "_compile": "cp -r lib/* tmp/ && cp -r config tmp/ && gulp && rm tmp/config/deployment.json && node deploy",
+    "_test": "./node_modules/.bin/_mocha -- -R spec test/unit"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-batch-replace": "0.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.0.2"
+  },
+  "dependencies": {}
+}

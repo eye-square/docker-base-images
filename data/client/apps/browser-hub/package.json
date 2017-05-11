@@ -1,0 +1,26 @@
+{
+  "name": "browser-hub",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "_compile": "rm -rf dist/* && gulp",
+    "watch": "TARGET=local gulp",
+    "test": "nodemon -x \"istanbul cover _mocha -- -R spec test/unit\"",
+    "_test": "_mocha -- -R spec test/unit",
+    "devmode": "docker-compose -f docker/local/compile.docker-compose.yml up --build && docker-compose -f docker/local/build.docker-compose.yml up --build"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-batch-replace": "0.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-uglify": "^2.0.0",
+    "istanbul": "^0.4.4",
+    "jquery": "^3.1.1",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.0",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {}
+}

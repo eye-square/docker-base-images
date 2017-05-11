@@ -1,0 +1,23 @@
+{
+  "name": "chrome-extension",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devmode": "docker-compose -f docker/local/compile.docker-compose.yml build && VERSION=$(git -C ../../.. describe --tags `git -C ../../.. rev-list --tags --max-count=1`) docker-compose -f docker/local/compile.docker-compose.yml up",
+    "_end2end": "rm -r -f /extensions/chrome-extension && cp -r dist /extensions/chrome-extension && chmod -R 777 /extensions/chrome-extension",
+    "_whatchCompile": "./bin/whatchCompile.sh",
+    "_compile": "gulp  && cp -r lib/img dist/img",
+    "_test": "./node_modules/.bin/_mocha -- -R spec test/unit"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-batch-replace": "0.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^3.0.2"
+  },
+  "dependencies": {}
+}

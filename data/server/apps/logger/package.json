@@ -1,0 +1,28 @@
+{
+  "name": "eyesquare-logger",
+  "version": "0.0.1",
+  "description": "eyesquare logging server",
+  "main": "main.js",
+  "dependencies": {
+    "winston": "*",
+    "connect": "2.x",
+    "winston-mongodb": "*"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.2.2",
+    "eslint-plugin-mocha": "^4.3.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.0",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0"
+  },
+  "scripts": {
+    "_compile": "echo \"compiling\"",
+    "devmode": "docker-compose -f docker/local/build.docker-compose.yml up --build --abort-on-container-exit",
+    "_test": "./node_modules/.bin/mocha -R spec test/unit",
+    "test": "./node_modules/.bin/nodemon -x \"./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec test/unit\"",
+    "e2e": "./node_modules/.bin/mocha -R spec test/e2e"
+  }
+}

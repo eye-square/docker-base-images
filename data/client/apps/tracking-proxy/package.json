@@ -1,0 +1,30 @@
+{
+  "name": "tracking-proxy",
+  "version": "0.0.1",
+  "description": "opens a web page in our context",
+  "main": "main.js",
+  "scripts": {
+    "devmode": "docker-compose -f docker/local/build.docker-compose.yml up --build",
+    "_compile": "gulp",
+    "_test": "./node_modules/.bin/_mocha -- -R spec test/unit",
+    "_end2end": "node main.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.4.1",
+    "request": "^2.74.0",
+    "url": "^0.11.0",
+    "ws": "^1.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-uglify": "^2.0.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.0",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0"
+  }
+}

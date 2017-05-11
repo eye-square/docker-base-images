@@ -1,0 +1,44 @@
+{
+  "name": "recording-scheduler",
+  "version": "0.0.0",
+  "description": "website for our recordings",
+  "main": "main.js",
+  "scripts": {
+    "devmode": "docker-compose -f docker/local/build.docker-compose.yml up --build --abort-on-container-exit",
+    "start": "node main.js",
+    "test": "ls test && ./node_modules/.bin/nodemon -x \"./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec test/unit\"",
+    "_compile": "echo \"compiling\"",
+    "_integration": "./node_modules/.bin/mocha --opts test/integration/lib/mocha.opts test/integration",
+    "_local": "nodemon -x \"npm start\"",
+    "_test": "./node_modules/.bin/mocha -R spec test/unit",
+    "_test_watch": "nodemon --watch ./ --exec 'mocha -R spec test/unit'"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.2.2",
+    "eslint-plugin-mocha": "^4.7.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.11.0",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.1",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "csv-parse": "^1.1.7",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "lodash": "^4.16.4",
+    "mongoose": "^4.5.10",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "request": "^2.74.0",
+    "serve-favicon": "^2.3.0",
+    "socket.io": "^1.4.8",
+    "url": "^0.11.0"
+  }
+}

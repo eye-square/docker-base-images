@@ -1,0 +1,16 @@
+{
+  "name": "e2-library-logging",
+  "version": "0.0.1",
+  "description": "shared stuff",
+  "main": "logging.js",
+  "scripts": {
+    "test": "./node_modules/jasmine/bin/jasmine.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-plugin-jasmine": "^1.8.1",
+    "jasmine": "^2.4.1"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,15 @@
+{
+  "name": "e2-firefox",
+  "title": "{{prefix}}eye square -  Visual Measurement",
+  "fullName": "{{prefix}}eye square -  Visual Measurement",
+  "id": "{{id}}",
+  "description": "eye square Firefox Extension",
+  "author": "Eye square GmbH",
+  "version": "000.111.222",
+  "main": "./scripts/core.js",
+  "contentaccessible": "yes",
+  "permissions": {
+    "unsafe-content-script": true
+  },
+  "dependencies": {}
+}

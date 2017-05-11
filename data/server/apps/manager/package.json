@@ -1,0 +1,12 @@
+{
+  "name": "manager",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "devmode": "docker-compose -f docker/local/local.docker-compose.yml up --build --abort-on-container-exit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}

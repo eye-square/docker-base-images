@@ -1,0 +1,16 @@
+{
+  "name": "facebook-login-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {}
+}

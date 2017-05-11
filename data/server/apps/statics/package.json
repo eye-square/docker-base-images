@@ -1,0 +1,19 @@
+{
+  "name": "statics",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "devmode": "docker-compose -f docker/local/build.docker-compose.yml up --build --abort-on-container-exit",
+    "_test": "echo \"no test specified yet\" && exit 0",
+    "_compile": "echo \"compiling\"",
+    "_local": "nodemon -x \"npm start\"",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+  }
+}
