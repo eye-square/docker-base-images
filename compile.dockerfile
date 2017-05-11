@@ -1,4 +1,4 @@
-FROM node:6.9
+FROM node:6.10
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
@@ -6,9 +6,6 @@ RUN apt-get update && apt-get install -y ruby-full  && \
   gem update --system && gem install compass
 RUN npm install --global gulp-cli
 RUn npm install --global jpm
-RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-  echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-  apt-get update && apt-get install yarn
 
 RUN mkdir core
 

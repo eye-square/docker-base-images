@@ -1,4 +1,4 @@
-FROM node:6.9
+FROM node:6.10
 
 ENV  DOCKER_VERSION="17.03.0-ce"
 ENV  COMPOSE_VERSION="1.11.2"
@@ -10,11 +10,6 @@ RUN curl -L -o /tmp/docker-$DOCKER_VERSION.tgz https://get.docker.com/builds/Lin
 
 RUN curl -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && \
   chmod +x /usr/local/bin/docker-compose
-
-# yarn and commonly used package to speed up installation
-RUN curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-  echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-  apt-get update && apt-get install yarn
 
 RUN mkdir core
 
