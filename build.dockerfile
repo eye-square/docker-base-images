@@ -1,3 +1,3 @@
-FROM node:6.10
+FROM node:6.11
 
 ENV NPM_CONFIG_LOGLEVEL warn
