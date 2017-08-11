@@ -7,7 +7,7 @@ ENV SERVER_SOURCE /static-server
 
 # add user node and change dir working dir
 RUN useradd -ms /bin/bash ${USER}
-RUN mkdir -p ${SERVER_SOURCE}
+RUN mkdir -p ${SERVER_SOURCE} && mkdir /dist
 WORKDIR ${SERVER_SOURCE}
 
 # install server

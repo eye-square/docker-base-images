@@ -1,7 +1,7 @@
 FROM node:6.11
 
-ENV  DOCKER_VERSION="17.03.0-ce"
-ENV  COMPOSE_VERSION="1.11.2"
+ENV  DOCKER_VERSION="17.05.0-ce"
+ENV  COMPOSE_VERSION="1.13.0"
 ENV  NPM_CONFIG_LOGLEVEL warn
 
 RUN curl -L -o /tmp/docker-$DOCKER_VERSION.tgz https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz && \
