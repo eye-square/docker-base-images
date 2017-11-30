@@ -5,7 +5,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 RUN apt-get update && apt-get install -y ruby-full  && \
   gem update --system && gem install compass
 RUN npm install --global gulp-cli
-RUn npm install --global jpm
+RUn npm install --global nodemon
 
 RUN mkdir core
 
