@@ -11,8 +11,6 @@ RUN curl -L -o /tmp/docker-$DOCKER_VERSION.tgz https://get.docker.com/builds/Lin
 RUN curl -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && \
   chmod +x /usr/local/bin/docker-compose
 
-RUN mkdir core
-
-COPY package.json /core/package.json
-
-RUN cd core && yarn install && rm -r node_modules && cd /
+# ### node based apps ###
+RUN yarn global add \
+  lerna
