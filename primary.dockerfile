@@ -14,3 +14,9 @@ RUN curl -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION
 # ### node based apps ###
 RUN yarn global add \
   lerna
+
+# unit and integration test related deps:
+## ffmpeg for our api
+RUN echo deb http://ftp.uk.debian.org/debian jessie-backports main \
+                   >>/etc/apt/sources.list \
+  && apt-get update &&  apt-get install -y ffmpeg
