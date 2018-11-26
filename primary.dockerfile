@@ -17,7 +17,7 @@ RUN curl -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION
 
 ### node based apps ###
 RUN yarn global add \
-  lerna
+  lerna@3.4.3
 
 # unit and integration test related deps:
 ## ffmpeg for our api
