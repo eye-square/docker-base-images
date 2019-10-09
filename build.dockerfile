@@ -1,6 +1,7 @@
 FROM node:10-alpine
 
 ENV NPM_CONFIG_LOGLEVEL warn
+ENV LERNA_VERSION 3.4.3
 
 RUN yarn global add \
-  lerna@3.4.3
+  lerna@${LERNA_VERSION}

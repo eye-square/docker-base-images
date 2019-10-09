@@ -3,6 +3,7 @@ FROM node:10
 ENV  DOCKER_VERSION="17.05.0-ce"
 ENV  COMPOSE_VERSION="1.13.0"
 ENV  NPM_CONFIG_LOGLEVEL warn
+ENV  LERNA_VERSION 3.4.3
 
 # aws
 RUN apt-get update && apt-get install -y python-dev python-pip
@@ -17,7 +18,7 @@ RUN curl -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION
 
 ### node based apps ###
 RUN yarn global add \
-  lerna@3.4.3
+  lerna@${LERNA_VERSION}
 
 # unit and integration test related deps:
 ## ffmpeg for our api
