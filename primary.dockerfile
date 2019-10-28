@@ -1,9 +1,9 @@
 FROM node:12
 
-ENV  DOCKER_VERSION="17.05.0-ce"
-ENV  COMPOSE_VERSION="1.13.0"
-ENV  NPM_CONFIG_LOGLEVEL warn
-ENV  LERNA_VERSION 3.4.3
+ENV DOCKER_VERSION="17.05.0-ce"
+ENV COMPOSE_VERSION="1.13.0"
+ENV NPM_CONFIG_LOGLEVEL warn
+ENV LERNA_VERSION 3.4.3
 
 # aws
 RUN apt-get update && apt-get install -y python-dev python-pip
@@ -22,6 +22,4 @@ RUN yarn global add \
 
 # unit and integration test related deps:
 ## ffmpeg for our api
-RUN echo deb http://ftp.uk.debian.org/debian jessie-backports main \
-                   >>/etc/apt/sources.list \
-  && apt-get update &&  apt-get install -y ffmpeg
+RUN apt-get update && apt-get install -y ffmpeg
