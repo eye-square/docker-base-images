@@ -2,8 +2,9 @@ FROM node:12
 
 ENV DOCKER_VERSION="17.05.0-ce"
 ENV COMPOSE_VERSION="1.13.0"
-ENV NPM_CONFIG_LOGLEVEL warn
 ENV LERNA_VERSION 3.4.3
+
+ENV NPM_CONFIG_LOGLEVEL warn
 
 # aws
 RUN apt-get update && apt-get install -y python-dev python-pip

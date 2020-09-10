@@ -1,11 +1,19 @@
 FROM node:12-slim
 
+ENV LERNA_VERSION 3.4.3
+# ENV CODECEPTJS_VERSION 2.3.1
+# ENV PUPPETEER_VERSION 1.17.0
+# ENV WEBDRIVERIO_VERSION 5.10.7
+
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-ENV LERNA_VERSION 3.4.3
-ENV CODECEPTJS_VERSION 2.3.1
-ENV PUPPETEER_VERSION 1.17.0
-ENV WEBDRIVERIO_VERSION 5.10.7
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD true
+
+# base services
+RUN apt-get update && apt-get install -yq wget gnupg openssl ranger vim
+
+# ffmpeg
+RUN apt-get update && apt-get install -yq ffmpeg
 
 # chrome setup
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
@@ -21,13 +29,12 @@ RUN apt-get update &&\
     libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
     libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 \
     libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
-    ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget \
+    ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils \
     xvfb x11vnc x11-xkb-utils xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic x11-apps
-
-RUN apt install -y ranger vim
 
 RUN yarn global add \
     lerna@${LERNA_VERSION} \
-    codeceptjs@${CODECEPTJS_VERSION} \
-    puppeteer@${PUPPETEER_VERSION} \
-    webdriverio@${WEBDRIVERIO_VERSION}
+    # codeceptjs@${CODECEPTJS_VERSION} \
+    # puppeteer@${PUPPETEER_VERSION} \
+    # webdriverio@${WEBDRIVERIO_VERSION} \
+    && yarn cache clean
