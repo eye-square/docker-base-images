@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14.15.0-slim
 
 # Enviroment variables
 ENV NPM_CONFIG_LOGLEVEL warn

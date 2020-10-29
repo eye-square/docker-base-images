@@ -1,6 +1,6 @@
-FROM node:12-slim
+FROM node:14.15.0-slim
 
-ENV LERNA_VERSION 3.4.3
+ENV LERNA_VERSION 3.22.1
 # ENV CODECEPTJS_VERSION 2.3.1
 # ENV PUPPETEER_VERSION 1.17.0
 # ENV WEBDRIVERIO_VERSION 5.10.7
@@ -10,7 +10,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD true
 
 # base services
-RUN apt-get update && apt-get install -yq wget gnupg openssl ranger vim
+RUN apt-get update && apt-get install -yq wget gnupg openssl ranger vim curl
 
 # ffmpeg
 RUN apt-get update && apt-get install -yq ffmpeg

@@ -1,10 +1,13 @@
-FROM node:12
+FROM node:14.15.0-slim
 
 ENV DOCKER_VERSION="17.05.0-ce"
 ENV COMPOSE_VERSION="1.13.0"
-ENV LERNA_VERSION 3.4.3
+ENV LERNA_VERSION 3.22.1
 
 ENV NPM_CONFIG_LOGLEVEL warn
+
+# base services
+RUN apt-get update && apt-get install -yq wget gnupg openssl ranger vim curl 
 
 # aws
 RUN apt-get update && apt-get install -y python-dev python-pip
