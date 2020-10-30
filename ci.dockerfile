@@ -7,8 +7,7 @@ ENV LERNA_VERSION 3.22.1
 ENV NPM_CONFIG_LOGLEVEL warn
 
 # base services
-RUN apt-get update && apt-get install -yq --no-install-recommends \
-  apt-utils \
+RUN apt-get update && apt-get install -yq \
   apt-transport-https \
   ca-certificates \
   wget \
@@ -19,32 +18,27 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   ranger \
   vim \
   curl \
-  git \
-  && rm -rf /var/lib/apt/lists/*
+  git
 
 # aws
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  python-dev python-pip python-setuptools python-wheel \
-  && rm -rf /var/lib/apt/lists/*
-  
+RUN apt-get update && apt-get install -y python-dev python-pip
 RUN pip install awscli && mkdir ~/.aws
 
 # docker
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
-  && apt-key fingerprint 0EBFCD88 \
-  && add-apt-repository \
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
+  apt-key fingerprint 0EBFCD88 && \
+  add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/debian \
     $(lsb_release -cs) \
-    stable" \
-  && apt-get update \
+    stable" && \
+  apt-get update && \
   # uncomment to print available versions:
-  # && apt-cache madison docker-ce \
-  && apt-get install -y --no-install-recommends docker-ce=${DOCKER_VERSION} docker-ce-cli=${DOCKER_VERSION} containerd.io \
-  && rm -rf /var/lib/apt/lists/* \
-  && docker --version
+  # apt-cache madison docker-ce && \
+  apt-get install -y docker-ce=${DOCKER_VERSION} docker-ce-cli=${DOCKER_VERSION} containerd.io && \
+  docker --version
 # docker-compose
-RUN curl -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
-  && chmod +x /usr/local/bin/docker-compose
+RUN curl -L https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && \
+  chmod +x /usr/local/bin/docker-compose
 
 ### node based apps ###
 RUN yarn global add \
@@ -52,6 +46,4 @@ RUN yarn global add \
 
 # unit and integration test related deps:
 ## ffmpeg for our api
-RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg \
-  && rm -rf /var/lib/apt/lists/*
-
+RUN apt-get update && apt-get install -y ffmpeg
