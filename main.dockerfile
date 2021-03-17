@@ -1,9 +1,6 @@
 FROM node:14.15.0-slim
 
 ENV LERNA_VERSION 3.22.1
-# ENV CODECEPTJS_VERSION 2.3.1
-# ENV PUPPETEER_VERSION 1.17.0
-# ENV WEBDRIVERIO_VERSION 5.10.7
 
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
@@ -34,7 +31,4 @@ RUN apt-get update &&\
 
 RUN yarn global add \
     lerna@${LERNA_VERSION} \
-    # codeceptjs@${CODECEPTJS_VERSION} \
-    # puppeteer@${PUPPETEER_VERSION} \
-    # webdriverio@${WEBDRIVERIO_VERSION} \
     && yarn cache clean
