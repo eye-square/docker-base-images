@@ -8,7 +8,7 @@ ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD true
 
 # base services
 RUN apt-get update &&\
-    apt-get install -yq wget gnupg openssl ranger vim curl python-dev python-pip git
+    apt-get install -yq wget gnupg openssl ranger vim neovim curl python-dev python-pip git jq
 
 # ffmpeg
 RUN apt-get update && apt-get install -yq ffmpeg
@@ -29,6 +29,10 @@ RUN apt-get update &&\
     libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
     ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils \
     xvfb x11vnc x11-xkb-utils xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic x11-apps
+
+# dotfiles (optional)
+COPY dotfiles/.bashrc /root/.bashrc
+COPY dotfiles/init.vim /root/.config/nvim/init.vim
 
 RUN yarn global add \
     lerna@${LERNA_VERSION} \
