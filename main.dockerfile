@@ -7,7 +7,8 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD true
 
 # base services
-RUN apt-get update && apt-get install -yq wget gnupg openssl ranger vim curl
+RUN apt-get update &&\
+    apt-get install -yq wget gnupg openssl ranger vim curl python-dev python-pip git
 
 # ffmpeg
 RUN apt-get update && apt-get install -yq ffmpeg
