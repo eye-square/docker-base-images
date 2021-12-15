@@ -34,4 +34,4 @@ jobs:
           context: .
           file: main.dockerfile
           push: true
-          tags: eyesquare/base-images:main-${{ env.GITHUB_REF_NAME }}
+          tags: eyesquare/base-images:main-${{ github.ref_name }}
