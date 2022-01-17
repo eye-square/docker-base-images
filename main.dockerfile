@@ -8,7 +8,7 @@ ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD true
 
 # base services
 RUN apt-get update &&\
-    apt-get install -yq wget gnupg openssl ranger vim neovim curl python-dev python-pip git jq
+    apt-get install -yq wget gnupg openssl ranger vim neovim curl python-dev python-pip pkg-config git jq
 
 # ffmpeg
 RUN apt-get update && apt-get install -yq ffmpeg
