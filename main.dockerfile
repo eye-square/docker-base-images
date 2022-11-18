@@ -1,6 +1,6 @@
-FROM node:16.13.1-slim
+FROM node:18.12.1-slim
 
-ENV LERNA_VERSION 4.0.0
+ENV LERNA_VERSION 6
 
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
@@ -8,7 +8,7 @@ ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD true
 
 # base services
 RUN apt-get update &&\
-    apt-get install -yq wget gnupg openssl ranger vim neovim curl python-dev python-pip git jq
+    apt-get install -yq wget gnupg openssl ranger vim neovim curl python-dev python3-pip git jq
 
 # node-canvas
 RUN apt-get update &&\
