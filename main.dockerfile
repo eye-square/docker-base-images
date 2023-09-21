@@ -8,7 +8,7 @@ ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD true
 
 # base services
 RUN apt-get update &&\
-    apt-get install -yq wget gnupg openssl ranger vim neovim curl python-dev python3-pip git jq
+    apt-get install -yq wget gnupg openssl ranger vim neovim curl python-dev python3-pip git jq awscli
 
 # node-canvas
 RUN apt-get update &&\
