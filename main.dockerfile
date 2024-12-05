@@ -10,10 +10,6 @@ ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=true
 RUN apt-get update &&\
     apt-get install -yq wget gnupg openssl ranger vim neovim curl python-dev-is-python3 python3-pip git jq awscli
 
-# node-binaries
-RUN apt-get update &&\
-    apt-get install -yq pkg-config libpixman-1-dev libcairo2-dev libpango1.0-dev libjpeg62-turbo-dev libgif-dev
-
 # ffmpeg
 RUN apt-get update && apt-get install -yq ffmpeg
 
