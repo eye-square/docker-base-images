@@ -1,4 +1,4 @@
-FROM node:22.12.0-slim
+FROM node:22.22.1-slim
 
 ENV LERNA_VERSION=6
 
